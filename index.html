@@ -1,216 +1,245 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#17110b">
-<title>نسائم المدينة للمشويات | المدينة المنورة</title>
-<meta name="description" content="نسائم المدينة للمشويات في المدينة المنورة، حي العريض. مشويات ووجبات وأطباق متنوعة. اطلب عبر واتساب.">
+<title>نسائم المدينة للمشويات</title>
 <style>
-:root{--bg:#17110b;--panel:#241a11;--gold:#f2b52f;--cream:#fff4df;--muted:#c9bba5}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--cream);font-family:Arial,Tahoma,sans-serif;line-height:1.7}
-header{padding:28px 16px;text-align:center;background:linear-gradient(135deg,#34200e,#17110b);border-bottom:2px solid var(--gold)}
-.logo{font-size:42px}
-h1{color:var(--gold);margin:5px 0;font-size:28px}
-header p{margin:4px;color:var(--muted)}
-.container{max-width:1000px;margin:auto;padding:18px}
-.hero{background:var(--panel);border:1px solid #554027;border-radius:18px;padding:22px;text-align:center;margin-bottom:20px}
-.hero h2{color:var(--gold);margin-top:0}
-.btn{display:inline-block;border:0;border-radius:10px;padding:11px 16px;font-size:15px;font-weight:bold;text-decoration:none;cursor:pointer}
-.gold{background:var(--gold);color:#201408}
-.green{background:#16864b;color:white}
-.search{width:100%;padding:14px;border-radius:12px;border:1px solid #685035;background:#241a11;color:white;font-size:16px;margin:12px 0}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 20px}
-.filters button{background:var(--panel);color:var(--cream);border:1px solid #685035;border-radius:22px;padding:9px 13px;cursor:pointer}
-.filters button.active{background:var(--gold);color:#201408}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
-.item{background:var(--panel);border:1px solid #4c3824;border-radius:15px;padding:16px;display:flex;flex-direction:column}
-.food-icon{font-size:35px}
-.item h3{margin:5px 0;color:var(--cream)}
-.category{font-size:12px;color:var(--muted)}
-.price{font-size:20px;color:var(--gold);font-weight:bold;margin:8px 0}
-.item button{margin-top:auto}
-.cart{background:var(--panel);border:1px solid #554027;border-radius:16px;padding:18px;margin-top:25px}
-.cart h2{color:var(--gold);margin-top:0}
-.cart-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #463321}
-.cart-row button{background:#7b2920;color:white;border:0;border-radius:6px;padding:3px 8px}
-input,textarea{width:100%;padding:12px;margin:6px 0 12px;border-radius:9px;border:1px solid #685035;background:#17110b;color:white;font-size:15px}
-label{display:block}
-.total{font-size:21px;color:var(--gold);font-weight:bold;margin:12px 0}
-.empty{text-align:center;color:var(--muted);padding:15px}
-footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid #463321;margin-top:30px}
-footer a{color:var(--gold)}
+body{margin:0;font-family:Tahoma,Arial;background:#17110b;color:#fff4df}
+header{text-align:center;padding:30px 12px;background:linear-gradient(#24170dcc,#17110bee),url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=80') center/cover;border-bottom:2px solid #f2b52f}
+.logo{font-size:44px}
+h1,h2{color:#f2b52f}
+header p{line-height:1.9}
+.actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin:15px 0}
+.btn{border:0;border-radius:9px;padding:12px 15px;background:#f2b52f;color:#211508;font-weight:bold;text-decoration:none;cursor:pointer;font-size:14px}
+.call{background:#238b57;color:white}
+.wa{background:#25a75a;color:white}
+.map{background:#392819;color:white;border:1px solid #80613a}
+main{max-width:1100px;margin:auto;padding:15px}
+input,textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #684b2a;background:#241a11;color:white;font:inherit;margin:5px 0}
+.categories{display:flex;gap:7px;overflow:auto;margin:12px 0}
+.cat{white-space:nowrap;background:#392819;color:white;border:1px solid #684b2a;border-radius:20px;padding:10px;cursor:pointer}
+.cat.active{background:#f2b52f;color:#211508}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.item{background:#241a11;border:1px solid #594027;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.emoji{text-align:center;font-size:35px}
+.item h3{font-size:15px;line-height:1.6;margin:0}
+.ingredients{font-size:12px;color:#d0bda0;line-height:1.7;flex:1}
+.price{color:#f2b52f;font-weight:bold;font-size:18px}
+.item button{width:100%}
+.cart{margin-top:25px;padding:15px;background:#241a11;border:1px solid #72502a;border-radius:12px}
+.cartrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #493421}
+.qty{display:flex;align-items:center;gap:7px}
+.qty button{padding:5px 10px}
+.total{font-size:22px;color:#f2b52f;margin:15px 0;font-weight:bold}
+footer{text-align:center;padding:25px;color:#d0bda0;line-height:2}
+@media(max-width:420px){.menu{grid-template-columns:repeat(2,minmax(0,1fr))}.item{padding:9px}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">🍗🔥</div>
-  <h1>نسائم المدينة للمشويات</h1>
-  <p>طعم يلمّ العيلة ❤️</p>
-  <p>📍 المدينة المنورة - حي العريض</p>
+<div class="logo">🔥🍗</div>
+<h1>نسائم المدينة للمشويات</h1>
+<p>أهلاً وسهلاً بكم ❤️<br>مشويات ومسمط ووجبات شهية<br>📍 المدينة المنورة - حي العريض</p>
+<p>📞 رقم المطعم: <strong dir="ltr">0532682168</strong></p>
+<div class="actions">
+<a class="btn wa" href="https://wa.me/966532682168" target="_blank" rel="noopener">💬 واتساب 0532682168</a>
+<a class="btn call" href="tel:+966532682168">📞 اتصال 0532682168</a>
+<a class="btn map" href="https://www.google.com/maps?q=24.4732194,39.647271" target="_blank" rel="noopener">📍 موقع المطعم</a>
+</div>
 </header>
 
-<main class="container">
-  <section class="hero">
-    <h2>أهلاً بيكم في نسائم المدينة</h2>
-    <p>مشويات وأطباق متنوعة وتجهيز وجبات لعمال المواقع.</p>
-    <a class="btn green" href="https://wa.me/966532682168">اطلب عبر واتساب</a>
-    <a class="btn gold" href="https://www.google.com/maps?q=24.4732194,39.647271">موقع المطعم 📍</a>
-  </section>
+<main>
+<h2>🍽️ قائمة الطعام</h2>
+<input id="search" placeholder="🔎 ابحث عن صنف..." oninput="render()">
+<div class="categories" id="cats"></div>
+<div class="menu" id="menu"></div>
 
-  <h2 style="color:var(--gold)">🍽️ قائمة الطعام</h2>
-  <input id="search" class="search" placeholder="🔎 ابحث عن صنف..." oninput="renderMenu()">
-
-  <div class="filters" id="filters">
-    <button class="active" onclick="setCategory('الكل',this)">الكل</button>
-    <button onclick="setCategory('الأطباق الرئيسية',this)">الأطباق الرئيسية</button>
-    <button onclick="setCategory('المسمط',this)">المسمط</button>
-    <button onclick="setCategory('المشويات',this)">المشويات</button>
-    <button onclick="setCategory('السندوتشات',this)">السندوتشات</button>
-    <button onclick="setCategory('الوجبات',this)">الوجبات</button>
-    <button onclick="setCategory('الصواني',this)">الصواني</button>
-    <button onclick="setCategory('المشروبات',this)">المشروبات</button>
-  </div>
-
-  <div class="menu" id="menu"></div>
-
-  <section class="cart">
-    <h2>🛒 طلبك</h2>
-    <div id="cartItems" class="empty">لسه ما ضفتش أصناف للسلة.</div>
-    <div class="total" id="total">الإجمالي: 0 ج</div>
-
-    <label for="customer">اسم العميل</label>
-    <input id="customer" placeholder="اكتب اسمك">
-
-    <label for="phone">رقم التواصل</label>
-    <input id="phone" type="tel" placeholder="رقم الموبايل">
-
-    <label for="address">عنوان التوصيل أو الموقع</label>
-    <input id="address" placeholder="اكتب العنوان">
-
-    <label for="notes">ملاحظات على الطلب</label>
-    <textarea id="notes" rows="3" placeholder="أي تفاصيل إضافية..."></textarea>
-
-    <button class="btn green" style="width:100%" onclick="sendOrder()">إرسال الطلب على واتساب</button>
-    <p style="color:var(--muted);font-size:12px">سيتم إرسال تفاصيل الطلب إلى المطعم لمراجعتها وتأكيدها.</p>
-  </section>
+<section class="cart">
+<h2>🛒 سلة الطلب</h2>
+<div id="cartitems">السلة فارغة.</div>
+<div class="total">الإجمالي: <span id="total">0</span> ريال</div>
+<input id="customer" placeholder="اسم العميل">
+<input id="phone" type="tel" placeholder="رقم جوال العميل">
+<input id="address" placeholder="عنوان التوصيل أو الاستلام">
+<textarea id="notes" placeholder="ملاحظات على الطلب"></textarea>
+<div class="actions">
+<button class="btn wa" onclick="sendOrder()">إرسال الطلب عبر واتساب</button>
+<button class="btn map" onclick="clearCart()">تفريغ السلة</button>
+</div>
+</section>
 </main>
 
 <footer>
-  <p>نسائم المدينة للمشويات 🍗</p>
-  <p>المدينة المنورة - حي العريض</p>
-  <a href="https://wa.me/966532682168">تواصل معنا على واتساب</a>
-  <p>© نسائم المدينة للمشويات</p>
+نسائم المدينة للمشويات ❤️<br>
+المدينة المنورة - حي العريض<br>
+للاتصال: 0532682168
 </footer>
 
 <script>
-const menuItems = [
- {name:"طبق أرز بالشعيرية",price:5,category:"الأطباق الرئيسية",icon:"🍚"},
- {name:"طبق رز بسمتي",price:5,category:"الأطباق الرئيسية",icon:"🍚"},
- {name:"طبق مكرونة",price:5,category:"الأطباق الرئيسية",icon:"🍝"},
- {name:"طبق محشي ملفوف",price:15,category:"الأطباق الرئيسية",icon:"🥬"},
- {name:"طبق محشي ورق عنب",price:20,category:"الأطباق الرئيسية",icon:"🍃"},
- {name:"طبق محشي مشكل",price:25,category:"الأطباق الرئيسية",icon:"🍲"},
- {name:"شوربة لسان عصفور",price:5,category:"الأطباق الرئيسية",icon:"🥣"},
- {name:"شوربة جلاتيني",price:20,category:"الأطباق الرئيسية",icon:"🥣"},
- {name:"طبق خضار (إدام)",price:5,category:"الأطباق الرئيسية",icon:"🥘"}
+const data=[
+["طبق أرز بالشعيرية",5,"الأطباق الرئيسية","🍚","أرز بالشعيرية"],
+["طبق رز بسمتي",5,"الأطباق الرئيسية","🍚","أرز بسمتي"],
+["طبق مكرونة",5,"الأطباق الرئيسية","🍝","مكرونة"],
+["طبق محشي ملفوف",15,"الأطباق الرئيسية","🥬","ملفوف وأرز وتتبيلة"],
+["طبق محشي ورق عنب",20,"الأطباق الرئيسية","🍃","ورق عنب وأرز وتتبيلة"],
+["طبق محشي مشكل",25,"الأطباق الرئيسية","🥬","تشكيلة محاشي"],
+["شوربة لسان عصفور",5,"الأطباق الرئيسية","🥣","لسان عصفور ومرق"],
+["شوربة جلاتيني",20,"الأطباق الرئيسية","🥣","شوربة جلاتيني؛ يُرجى تأكيد المكونات"],
+["طبق خضار (إدام)",5,"الأطباق الرئيسية","🥘","خضار مطهو"],
+["علبة سلطة",3,"الأطباق الرئيسية","🥗","خضراوات طازجة"],
+["علبة طحينة",3,"الأطباق الرئيسية","🥣","طحينة"],
+["حمام",40,"المسمط","🍗","حمام؛ حسب طريقة تحضير المطعم"],
+["طبق بطاطس",5,"الأطباق الرئيسية","🍟","بطاطس"],
+["طبق سمبوسك 6 قطع",10,"الأطباق الرئيسية","🥟","6 قطع سمبوسك"],
+["طلب سمين",20,"المسمط","🍲","سمين؛ تفاصيل الطبق حسب المطعم"],
+["لحمة رأس",25,"المسمط","🍖","لحمة رأس مطهية"],
+["كبدة اسكندراني",17,"المسمط","🍳","كبدة وبصل وفلفل وتوابل"],
+["كبدة بانيه",20,"المسمط","🍖","كبدة بانيه"],
+["مخ",20,"المسمط","🍳","مخ مطهو"],
+["ممبار",15,"المسمط","🌭","ممبار محشي بالأرز والتتبيلة"],
+["سجق بلدي",20,"المسمط","🌭","سجق بلدي وتوابل"],
+["كفتة باللية",25,"المسمط","🍢","لحم مفروم وليّة وتوابل"],
+["سوبر مسمط",40,"المسمط","🍲","تشكيلة مسمط؛ يُرجى تأكيد التفاصيل"],
+["طاسة ميكس باللية",35,"المسمط","🍳","تشكيلة لحوم وليّة"],
+["حبة مشوية على الفحم",30,"المشويات","🔥","حبة مشوية على الفحم"],
+["نصف حبة مشوية",15,"المشويات","🍗","نصف حبة مشوية"],
+["أوصال لحم بلدي - كيلو",150,"المشويات","🥩","أوصال لحم بلدي وتتبيلة"],
+["أوصال لحم بلدي - نصف كيلو",80,"المشويات","🥩","نصف كيلو أوصال لحم بلدي"],
+["أوصال لحم بلدي - ربع كيلو",40,"المشويات","🥩","ربع كيلو أوصال لحم بلدي"],
+["طرب - كيلو",140,"المشويات","🔥","طرب مشوي"],
+["طرب - نصف كيلو",70,"المشويات","🔥","نصف كيلو طرب"],
+["طرب - ربع كيلو",35,"المشويات","🔥","ربع كيلو طرب"],
+["كباب لحم بلدي - كيلو",120,"المشويات","🍢","كباب لحم بلدي"],
+["كباب لحم بلدي - نصف كيلو",60,"المشويات","🍢","نصف كيلو كباب لحم"],
+["كباب لحم بلدي - ربع كيلو",30,"المشويات","🍢","ربع كيلو كباب لحم"],
+["كباب دجاج - كيلو",80,"المشويات","🍗","كباب دجاج"],
+["كباب دجاج - نصف كيلو",40,"المشويات","🍗","نصف كيلو كباب دجاج"],
+["كباب دجاج - ربع كيلو",20,"المشويات","🍗","ربع كيلو كباب دجاج"],
+["شيش - كيلو",100,"المشويات","🍢","شيش مشوي"],
+["شيش - نصف كيلو",50,"المشويات","🍢","نصف كيلو شيش"],
+["شيش - ربع كيلو",25,"المشويات","🍢","ربع كيلو شيش"],
+["مشكل مشاوي لحوم - كيلو",160,"المشويات","🔥","تشكيلة مشاوي لحوم"],
+["مشكل مشاوي لحوم - نصف كيلو",80,"المشويات","🔥","نصف كيلو مشاوي لحوم"],
+["مشكل مشاوي لحوم - ربع كيلو",40,"المشويات","🔥","ربع كيلو مشاوي لحوم"],
+["ريش - كيلو",170,"المشويات","🍖","ريش مشوية"],
+["ريش - نصف كيلو",85,"المشويات","🍖","نصف كيلو ريش"],
+["ريش - ربع كيلو",45,"المشويات","🍖","ربع كيلو ريش"],
+["موزة بتلو - كيلو",120,"المشويات","🍖","موزة بتلو"],
+["موزة بتلو - نصف كيلو",60,"المشويات","🍖","نصف كيلو موزة بتلو"],
+["موزة بتلو - ربع كيلو",30,"المشويات","🍖","ربع كيلو موزة بتلو"],
+["سندوتش كباب لحم",10,"السندوتشات","🥙","خبز وكباب لحم"],
+["سندوتش كبدة اسكندراني",8,"السندوتشات","🥙","خبز وكبدة وبصل وفلفل"],
+["سندوتش كبدة بانيه",10,"السندوتشات","🥙","خبز وكبدة بانيه"],
+["سندوتش مخ",12,"السندوتشات","🥙","خبز ومخ مطهو"],
+["سندوتش برجر",15,"السندوتشات","🍔","خبز وبرجر وإضافات"],
+["سندوتش استربس",10,"السندوتشات","🍗","خبز وقطع دجاج مقرمشة"],
+["سندوتش سجق بلدي",10,"السندوتشات","🌭","خبز وسجق بلدي"],
+["حواوشي بلدي",15,"السندوتشات","🥙","خبز بلدي ولحم متبل"],
+["سندوتش سمين",8,"السندوتشات","🥙","خبز وسمين"],
+["وجبة 1: ربع حبة + أرز + خضار + سلطة + طحينة",15,"الوجبات","🍗","ربع حبة وأرز وخضار وسلطة وطحينة"],
+["وجبة 2: نصف حبة مشوية + إضافات",25,"الوجبات","🍗","نصف حبة مشوية وإضافات"],
+["وجبة 3: ربع فرخة محمر",15,"الوجبات","🍗","ربع فرخة محمر"],
+["وجبة 4: نصف فرخة محمر",25,"الوجبات","🍗","نصف فرخة محمر"],
+["وجبة 5: لحم محمر بالزبدة البلدي",30,"الوجبات","🍖","لحم محمر وزبدة بلدي"],
+["وجبة 6: لحم مسلوق بالزبدة",25,"الوجبات","🍖","لحم مسلوق وزبدة"],
+["وجبة 7: كبدة + أرز + سلطة",30,"الوجبات","🍛","كبدة وأرز وسلطة"],
+["صينية اللحمة",200,"الصواني","🥘","صينية لحمة؛ المكونات حسب تجهيز المطعم"],
+["صينية نسائم المدينة",149,"الصواني","🍽️","صينية مشكلة؛ محتوياتها تُؤكد من المطعم"],
+["صينية الصحاب",99,"الصواني","🍽️","صينية مشاركة؛ محتوياتها تُؤكد من المطعم"],
+["صينية الأكيل",59,"الصواني","🍽️","صينية وجبة؛ محتوياتها تُؤكد من المطعم"],
+["كنز كبير",3,"المشروبات","🥤","مشروب كنز كبير"],
+["كنز صغير",2,"المشروبات","🥤","مشروب كنز صغير"],
+["حمضيات",2,"المشروبات","🧃","مشروب حمضيات"],
+["مياه كبيرة",1,"المشروبات","💧","مياه"],
+["مياه صغيرة",0.5,"المشروبات","💧","مياه"]
 ];
 
-let selectedCategory = "الكل";
-let cart = [];
+let active="الكل",cart={};
 
-function setCategory(category,button){
- selectedCategory=category;
- document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
- button.classList.add("active");
- renderMenu();
+function makeCategories(){
+ const el=document.getElementById("cats");
+ el.innerHTML="";
+ ["الكل",...new Set(data.map(x=>x[2]))].forEach(c=>{
+  const b=document.createElement("button");
+  b.className="cat"+(active===c?" active":"");
+  b.textContent=c;
+  b.onclick=()=>{active=c;makeCategories();render()};
+  el.appendChild(b);
+ });
 }
 
-function renderMenu(){
- const search=document.getElementById("search").value.trim().toLowerCase();
- const filtered=menuItems.filter(item=>
-   (selectedCategory==="الكل"||item.category===selectedCategory)&&
-   item.name.toLowerCase().includes(search)
- );
+function render(){
+ const query=document.getElementById("search").value.trim().toLowerCase();
  const menu=document.getElementById("menu");
- if(filtered.length===0){
-   menu.innerHTML='<p class="empty">مفيش أصناف مطابقة للبحث في الأصناف المتاحة حالياً.</p>';
-   return;
- }
- menu.innerHTML=filtered.map(item=>`
-  <article class="item">
-   <div class="food-icon">${item.icon}</div>
-   <div class="category">${item.category}</div>
-   <h3>${item.name}</h3>
-   <div class="price">${item.price} ج</div>
-   <button class="btn gold" onclick="addToCart('${item.name.replace(/'/g,"\\'")}')">أضف للسلة +</button>
-  </article>`).join("");
+ menu.innerHTML="";
+ data.forEach((x,i)=>{
+  if(active!=="الكل"&&x[2]!==active)return;
+  if(!x[0].toLowerCase().includes(query))return;
+  const card=document.createElement("article");
+  card.className="item";
+  card.innerHTML='<div class="emoji"></div><h3></h3><div class="ingredients"></div><div class="price"></div><button class="btn">➕ أضف للسلة</button>';
+  card.querySelector(".emoji").textContent=x[3];
+  card.querySelector("h3").textContent=x[0];
+  card.querySelector(".ingredients").textContent="المكونات: "+x[4];
+  card.querySelector(".price").textContent=x[1]+" ريال";
+  card.querySelector("button").onclick=()=>add(i);
+  menu.appendChild(card);
+ });
 }
 
-function addToCart(name){
- const item=menuItems.find(x=>x.name===name);
- if(!item)return;
- const existing=cart.find(x=>x.name===name);
- if(existing)existing.qty++;
- else cart.push({...item,qty:1});
- renderCart();
-}
-
-function changeQty(name,change){
- const item=cart.find(x=>x.name===name);
- if(!item)return;
- item.qty+=change;
- if(item.qty<=0)cart=cart.filter(x=>x.name!==name);
- renderCart();
-}
+function add(i){cart[i]=(cart[i]||0)+1;renderCart()}
+function change(i,n){cart[i]=(cart[i]||0)+n;if(cart[i]<=0)delete cart[i];renderCart()}
 
 function renderCart(){
- const box=document.getElementById("cartItems");
- if(cart.length===0){
-  box.innerHTML='<div class="empty">لسه ما ضفتش أصناف للسلة.</div>';
- }else{
-  box.innerHTML=cart.map(item=>`
-   <div class="cart-row">
-    <span>${item.name}<br>${item.price} ج × ${item.qty}</span>
-    <span>
-     <button onclick="changeQty('${item.name}',-1)">−</button>
-     ${item.qty}
-     <button onclick="changeQty('${item.name}',1)">+</button>
-    </span>
-   </div>`).join("");
- }
- const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
- document.getElementById("total").textContent="الإجمالي: "+total+" ج";
+ const el=document.getElementById("cartitems");
+ el.innerHTML="";
+ let total=0,hasItems=false;
+ Object.keys(cart).forEach(k=>{
+  const i=Number(k),x=data[i],q=cart[i];
+  hasItems=true;total+=x[1]*q;
+  const row=document.createElement("div");row.className="cartrow";
+  const name=document.createElement("span");
+  name.textContent=x[0]+" — "+(x[1]*q)+" ريال";
+  const qty=document.createElement("div");qty.className="qty";
+  const minus=document.createElement("button");minus.textContent="−";minus.onclick=()=>change(i,-1);
+  const count=document.createElement("span");count.textContent=q;
+  const plus=document.createElement("button");plus.textContent="+";plus.onclick=()=>add(i);
+  qty.append(minus,count,plus);row.append(name,qty);el.appendChild(row);
+ });
+ if(!hasItems)el.textContent="السلة فارغة.";
+ document.getElementById("total").textContent=total;
 }
 
+function clearCart(){cart={};renderCart()}
+
 function sendOrder(){
- if(cart.length===0){alert("أضف صنف واحد على الأقل للسلة.");return;}
+ if(!Object.keys(cart).length){alert("أضف صنفاً للسلة أولاً");return}
  const customer=document.getElementById("customer").value.trim();
  const phone=document.getElementById("phone").value.trim();
  const address=document.getElementById("address").value.trim();
  const notes=document.getElementById("notes").value.trim();
- if(!customer||!phone||!address){
-  alert("اكتب الاسم ورقم التواصل والعنوان الأول.");return;
- }
- const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
- let message="طلب جديد من موقع نسائم المدينة للمشويات%0A";
- message+="الاسم: "+encodeURIComponent(customer)+"%0A";
- message+="رقم التواصل: "+encodeURIComponent(phone)+"%0A";
- message+="العنوان: "+encodeURIComponent(address)+"%0A%0A";
- message+="تفاصيل الطلب:%0A";
- cart.forEach(item=>{
-  message+=encodeURIComponent(item.name)+" × "+item.qty+" = "+(item.price*item.qty)+" ج%0A";
+ if(!customer||!phone||!address){alert("اكتب الاسم ورقم الجوال والعنوان");return}
+ let lines=[
+  "طلب جديد - نسائم المدينة للمشويات",
+  "الاسم: "+customer,
+  "جوال العميل: "+phone,
+  "العنوان: "+address,""
+ ];
+ let total=0;
+ Object.keys(cart).forEach(k=>{
+  const x=data[Number(k)],q=cart[k];
+  total+=x[1]*q;
+  lines.push(x[0]+" × "+q+" = "+(x[1]*q)+" ريال");
  });
- message+="%0Aالإجمالي: "+total+" ج";
- if(notes)message+="%0Aملاحظات: "+encodeURIComponent(notes);
- window.open("https://wa.me/966532682168?text="+message,"_blank");
+ lines.push("","الإجمالي: "+total+" ريال");
+ if(notes)lines.push("ملاحظات: "+notes);
+ window.open("https://wa.me/966532682168?text="+encodeURIComponent(lines.join("\n")),"_blank");
 }
 
-renderMenu();
-renderCart();
+makeCategories();render();renderCart();
 </script>
 </body>
 </html>

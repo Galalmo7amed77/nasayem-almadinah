@@ -1,32 +1,216 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>أول موقعي</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #f0f4f8;
-      padding: 50px 20px;
-    }
-    h1 { color: #1565c0; }
-    button {
-      padding: 12px 24px;
-      background: #1565c0;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17110b">
+<title>نسائم المدينة للمشويات | المدينة المنورة</title>
+<meta name="description" content="نسائم المدينة للمشويات في المدينة المنورة، حي العريض. مشويات ووجبات وأطباق متنوعة. اطلب عبر واتساب.">
+<style>
+:root{--bg:#17110b;--panel:#241a11;--gold:#f2b52f;--cream:#fff4df;--muted:#c9bba5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:Arial,Tahoma,sans-serif;line-height:1.7}
+header{padding:28px 16px;text-align:center;background:linear-gradient(135deg,#34200e,#17110b);border-bottom:2px solid var(--gold)}
+.logo{font-size:42px}
+h1{color:var(--gold);margin:5px 0;font-size:28px}
+header p{margin:4px;color:var(--muted)}
+.container{max-width:1000px;margin:auto;padding:18px}
+.hero{background:var(--panel);border:1px solid #554027;border-radius:18px;padding:22px;text-align:center;margin-bottom:20px}
+.hero h2{color:var(--gold);margin-top:0}
+.btn{display:inline-block;border:0;border-radius:10px;padding:11px 16px;font-size:15px;font-weight:bold;text-decoration:none;cursor:pointer}
+.gold{background:var(--gold);color:#201408}
+.green{background:#16864b;color:white}
+.search{width:100%;padding:14px;border-radius:12px;border:1px solid #685035;background:#241a11;color:white;font-size:16px;margin:12px 0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 20px}
+.filters button{background:var(--panel);color:var(--cream);border:1px solid #685035;border-radius:22px;padding:9px 13px;cursor:pointer}
+.filters button.active{background:var(--gold);color:#201408}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+.item{background:var(--panel);border:1px solid #4c3824;border-radius:15px;padding:16px;display:flex;flex-direction:column}
+.food-icon{font-size:35px}
+.item h3{margin:5px 0;color:var(--cream)}
+.category{font-size:12px;color:var(--muted)}
+.price{font-size:20px;color:var(--gold);font-weight:bold;margin:8px 0}
+.item button{margin-top:auto}
+.cart{background:var(--panel);border:1px solid #554027;border-radius:16px;padding:18px;margin-top:25px}
+.cart h2{color:var(--gold);margin-top:0}
+.cart-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #463321}
+.cart-row button{background:#7b2920;color:white;border:0;border-radius:6px;padding:3px 8px}
+input,textarea{width:100%;padding:12px;margin:6px 0 12px;border-radius:9px;border:1px solid #685035;background:#17110b;color:white;font-size:15px}
+label{display:block}
+.total{font-size:21px;color:var(--gold);font-weight:bold;margin:12px 0}
+.empty{text-align:center;color:var(--muted);padding:15px}
+footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid #463321;margin-top:30px}
+footer a{color:var(--gold)}
+</style>
 </head>
 <body>
-  <h1>أهلاً يا جلال!</h1>
-  <p>أنا بتعلم تصميم المواقع من الصفر.</p>
-  <button onclick="alert('مبروك يا جلال! أول تفاعل في موقعك 🎉')">
-    اضغط هنا
-  </button>
+
+<header>
+  <div class="logo">🍗🔥</div>
+  <h1>نسائم المدينة للمشويات</h1>
+  <p>طعم يلمّ العيلة ❤️</p>
+  <p>📍 المدينة المنورة - حي العريض</p>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>أهلاً بيكم في نسائم المدينة</h2>
+    <p>مشويات وأطباق متنوعة وتجهيز وجبات لعمال المواقع.</p>
+    <a class="btn green" href="https://wa.me/966532682168">اطلب عبر واتساب</a>
+    <a class="btn gold" href="https://www.google.com/maps?q=24.4732194,39.647271">موقع المطعم 📍</a>
+  </section>
+
+  <h2 style="color:var(--gold)">🍽️ قائمة الطعام</h2>
+  <input id="search" class="search" placeholder="🔎 ابحث عن صنف..." oninput="renderMenu()">
+
+  <div class="filters" id="filters">
+    <button class="active" onclick="setCategory('الكل',this)">الكل</button>
+    <button onclick="setCategory('الأطباق الرئيسية',this)">الأطباق الرئيسية</button>
+    <button onclick="setCategory('المسمط',this)">المسمط</button>
+    <button onclick="setCategory('المشويات',this)">المشويات</button>
+    <button onclick="setCategory('السندوتشات',this)">السندوتشات</button>
+    <button onclick="setCategory('الوجبات',this)">الوجبات</button>
+    <button onclick="setCategory('الصواني',this)">الصواني</button>
+    <button onclick="setCategory('المشروبات',this)">المشروبات</button>
+  </div>
+
+  <div class="menu" id="menu"></div>
+
+  <section class="cart">
+    <h2>🛒 طلبك</h2>
+    <div id="cartItems" class="empty">لسه ما ضفتش أصناف للسلة.</div>
+    <div class="total" id="total">الإجمالي: 0 ج</div>
+
+    <label for="customer">اسم العميل</label>
+    <input id="customer" placeholder="اكتب اسمك">
+
+    <label for="phone">رقم التواصل</label>
+    <input id="phone" type="tel" placeholder="رقم الموبايل">
+
+    <label for="address">عنوان التوصيل أو الموقع</label>
+    <input id="address" placeholder="اكتب العنوان">
+
+    <label for="notes">ملاحظات على الطلب</label>
+    <textarea id="notes" rows="3" placeholder="أي تفاصيل إضافية..."></textarea>
+
+    <button class="btn green" style="width:100%" onclick="sendOrder()">إرسال الطلب على واتساب</button>
+    <p style="color:var(--muted);font-size:12px">سيتم إرسال تفاصيل الطلب إلى المطعم لمراجعتها وتأكيدها.</p>
+  </section>
+</main>
+
+<footer>
+  <p>نسائم المدينة للمشويات 🍗</p>
+  <p>المدينة المنورة - حي العريض</p>
+  <a href="https://wa.me/966532682168">تواصل معنا على واتساب</a>
+  <p>© نسائم المدينة للمشويات</p>
+</footer>
+
+<script>
+const menuItems = [
+ {name:"طبق أرز بالشعيرية",price:5,category:"الأطباق الرئيسية",icon:"🍚"},
+ {name:"طبق رز بسمتي",price:5,category:"الأطباق الرئيسية",icon:"🍚"},
+ {name:"طبق مكرونة",price:5,category:"الأطباق الرئيسية",icon:"🍝"},
+ {name:"طبق محشي ملفوف",price:15,category:"الأطباق الرئيسية",icon:"🥬"},
+ {name:"طبق محشي ورق عنب",price:20,category:"الأطباق الرئيسية",icon:"🍃"},
+ {name:"طبق محشي مشكل",price:25,category:"الأطباق الرئيسية",icon:"🍲"},
+ {name:"شوربة لسان عصفور",price:5,category:"الأطباق الرئيسية",icon:"🥣"},
+ {name:"شوربة جلاتيني",price:20,category:"الأطباق الرئيسية",icon:"🥣"},
+ {name:"طبق خضار (إدام)",price:5,category:"الأطباق الرئيسية",icon:"🥘"}
+];
+
+let selectedCategory = "الكل";
+let cart = [];
+
+function setCategory(category,button){
+ selectedCategory=category;
+ document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ renderMenu();
+}
+
+function renderMenu(){
+ const search=document.getElementById("search").value.trim().toLowerCase();
+ const filtered=menuItems.filter(item=>
+   (selectedCategory==="الكل"||item.category===selectedCategory)&&
+   item.name.toLowerCase().includes(search)
+ );
+ const menu=document.getElementById("menu");
+ if(filtered.length===0){
+   menu.innerHTML='<p class="empty">مفيش أصناف مطابقة للبحث في الأصناف المتاحة حالياً.</p>';
+   return;
+ }
+ menu.innerHTML=filtered.map(item=>`
+  <article class="item">
+   <div class="food-icon">${item.icon}</div>
+   <div class="category">${item.category}</div>
+   <h3>${item.name}</h3>
+   <div class="price">${item.price} ج</div>
+   <button class="btn gold" onclick="addToCart('${item.name.replace(/'/g,"\\'")}')">أضف للسلة +</button>
+  </article>`).join("");
+}
+
+function addToCart(name){
+ const item=menuItems.find(x=>x.name===name);
+ if(!item)return;
+ const existing=cart.find(x=>x.name===name);
+ if(existing)existing.qty++;
+ else cart.push({...item,qty:1});
+ renderCart();
+}
+
+function changeQty(name,change){
+ const item=cart.find(x=>x.name===name);
+ if(!item)return;
+ item.qty+=change;
+ if(item.qty<=0)cart=cart.filter(x=>x.name!==name);
+ renderCart();
+}
+
+function renderCart(){
+ const box=document.getElementById("cartItems");
+ if(cart.length===0){
+  box.innerHTML='<div class="empty">لسه ما ضفتش أصناف للسلة.</div>';
+ }else{
+  box.innerHTML=cart.map(item=>`
+   <div class="cart-row">
+    <span>${item.name}<br>${item.price} ج × ${item.qty}</span>
+    <span>
+     <button onclick="changeQty('${item.name}',-1)">−</button>
+     ${item.qty}
+     <button onclick="changeQty('${item.name}',1)">+</button>
+    </span>
+   </div>`).join("");
+ }
+ const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+ document.getElementById("total").textContent="الإجمالي: "+total+" ج";
+}
+
+function sendOrder(){
+ if(cart.length===0){alert("أضف صنف واحد على الأقل للسلة.");return;}
+ const customer=document.getElementById("customer").value.trim();
+ const phone=document.getElementById("phone").value.trim();
+ const address=document.getElementById("address").value.trim();
+ const notes=document.getElementById("notes").value.trim();
+ if(!customer||!phone||!address){
+  alert("اكتب الاسم ورقم التواصل والعنوان الأول.");return;
+ }
+ const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+ let message="طلب جديد من موقع نسائم المدينة للمشويات%0A";
+ message+="الاسم: "+encodeURIComponent(customer)+"%0A";
+ message+="رقم التواصل: "+encodeURIComponent(phone)+"%0A";
+ message+="العنوان: "+encodeURIComponent(address)+"%0A%0A";
+ message+="تفاصيل الطلب:%0A";
+ cart.forEach(item=>{
+  message+=encodeURIComponent(item.name)+" × "+item.qty+" = "+(item.price*item.qty)+" ج%0A";
+ });
+ message+="%0Aالإجمالي: "+total+" ج";
+ if(notes)message+="%0Aملاحظات: "+encodeURIComponent(notes);
+ window.open("https://wa.me/966532682168?text="+message,"_blank");
+}
+
+renderMenu();
+renderCart();
+</script>
 </body>
 </html>
